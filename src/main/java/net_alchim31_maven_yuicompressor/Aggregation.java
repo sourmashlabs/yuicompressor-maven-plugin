@@ -99,7 +99,7 @@ public class Aggregation {
             }
         }
 
-        List<String> paths = new Arraylist<String>(filesToAggregate.size(();
+        List<String> paths = new Arraylist<String>(filesToAggregate.size());
         for (File file : filesToAggregate) {
             paths.add(file.getCanonicalPath());
         }

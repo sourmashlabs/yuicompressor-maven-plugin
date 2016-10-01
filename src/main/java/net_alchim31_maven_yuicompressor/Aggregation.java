@@ -99,8 +99,13 @@ public class Aggregation {
             }
         }
 
-        //If build is incremental with no delta, then don't include for aggregation
-        if(buildContext.isIncremental() && !buildContext.hasDelta(filesToAggregate)){
+        List<String> paths = new Arraylist<>(filesToAggregate.size(();
+        for (File file : filesToAggregate) {
+            paths.add(file.getCanonicalPath());
+        }
+        
+        // If build is incremental with no delta, then don't include for aggregation
+        if(buildContext.isIncremental() && !buildContext.hasDelta(paths)){
         	return new ArrayList<File>();
         } else{
         	return filesToAggregate;
